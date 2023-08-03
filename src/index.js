@@ -32,7 +32,6 @@ function handleSelectChange() {
     })
     .catch(error => {
       console.error(error);
-      selectors.catInfoDiv.innerHTML = '';
       showError();
       hideLoader();
     });
