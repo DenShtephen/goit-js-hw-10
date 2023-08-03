@@ -15,8 +15,17 @@ selectors.selectBtn.addEventListener('change', handleSelectChange);
 
 function handleSelectChange() {
   const selectedBreedId = selectors.selectBtn.value;
+
+ selectors.catInfoDiv.innerHTML = '';
+
   showLoader();
   fetchCatByBreed(selectedBreedId)
+        .then(data => {
+      if (data.length === 0) {
+        throw new Error('No cat found for the selected breed');
+      }
+      return data[0];
+    })
     .then(cat => {
       displayCatInfo(cat);
       hideLoader();
@@ -70,6 +79,8 @@ fetchBreeds()
     new SlimSelect({
       select: '.breed-select',
     });
+
+    selectors.selectBtn.classList.remove("is-hidden")
   })
   .catch(error => {
     console.error(error);
