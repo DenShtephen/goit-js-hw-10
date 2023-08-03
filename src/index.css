@@ -16,12 +16,13 @@ p {
 }
 
 .breed-select {
-  width: 460px;
+  width: 400px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   margin-top: 30px;
   border-radius: 10px;
+  margin-bottom: 60px;
 }
 
 .js-loader {
